@@ -20,11 +20,10 @@ stages:
 
 - stage: DeleteHelloWorld
   jobs:
-  - job: DeleteHelloWorld
-    dependsOn: PrintHelloSpace   # This should match the stage name exactly.
+  - job: DummyJob
     steps:
-    - script: |
-        
-      displayName: 'Delete Hello World'
+    - script: echo "This is a dummy job with no actual tasks."
+      displayName: 'Dummy Job'
+
 
 
