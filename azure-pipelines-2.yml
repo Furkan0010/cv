@@ -1,0 +1,18 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs:
+- job: PrintHelloWorld
+  steps:
+  - script: echo "Hello World"
+    displayName: 'Print Hello World'
+
+- job: PrintHelloHuman
+  dependsOn: PrintHelloWorld
+  steps:
+  - script: echo "Hello Human"
+    displayName: 'Print Hello Human'
+
