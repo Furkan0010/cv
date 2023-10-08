@@ -19,11 +19,13 @@ stages:
       displayName: 'Print Hello Space'
 
 - stage: DeleteHelloWorld
+  dependsOn: PrintHelloSpace
   jobs:
-  - job: DummyJob
+  - job: DeleteHelloWorld
     steps:
-    - script: echo "This is a dummy job with no actual tasks."
-      displayName: 'Dummy Job'
-
-
+    - script: |
+        # Assuming you want to delete the "Hello World" file or resource here.
+        # Replace this with the actual deletion command for your specific scenario.
+        echo "Deleting Hello World"
+      displayName: 'Delete Hello World'
 
