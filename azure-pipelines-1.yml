@@ -19,13 +19,12 @@ stages:
       displayName: 'Print Hello Space'
 
 - stage: DeleteHelloWorld
-  dependsOn: PrintHelloSpace
   jobs:
   - job: DeleteHelloWorld
+    dependsOn: PrintHelloSpace   # This should match the stage name exactly.
     steps:
     - script: |
-        # Assuming you want to delete the "Hello World" file or resource here.
-        # Replace this with the actual deletion command for your specific scenario.
-        echo "Deleting Hello World"
+        
       displayName: 'Delete Hello World'
+
 
