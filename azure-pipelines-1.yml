@@ -1,0 +1,31 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: PrintHello
+  jobs:
+  - job: PrintHelloWorld
+    steps:
+    - script: echo "Hello World"
+      displayName: 'Print Hello World'
+
+  - job: PrintHelloSpace
+    dependsOn: PrintHelloWorld
+    steps:
+    - script: echo "Hello Space"
+      displayName: 'Print Hello Space'
+
+- stage: DeleteHelloWorld
+  jobs:
+  - job: DeleteHelloWorld
+    dependsOn: PrintHelloSpace
+    steps:
+    - script: |
+        # Assuming you want to delete the "Hello World" file or resource here.
+        # Replace this with the actual deletion command for your specific scenario.
+        echo "Deleting Hello World"
+      displayName: 'Delete Hello World'
+
